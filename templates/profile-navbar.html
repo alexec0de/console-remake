@@ -1,0 +1,15 @@
+<li class="nav-item avatar dropdown pl-3">
+    <a class="nav-link dropdown-toggle btn-rounded" id="avatar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            
+            <img src="{{ url_for('static', filename='img/user.png')}}" class="rounded-circle z-depth-0" alt="avatar image">
+    
+    </a>
+    <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="avatar-dropdown">
+        <a class="dropdown-item" href="/dashboard">Рабочий стол</a>
+        <a class="dropdown-item" href="/profile">Профиль</a>
+        {% if users[0]['is_admin'] == 1 %}
+            <a class="dropdown-item" href="/admin/dashboard">Панель администратора</a>
+        {% endif %}
+    </div>
+</li>

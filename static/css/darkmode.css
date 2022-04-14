@@ -1,0 +1,24 @@
+body.dark {
+    background: #141414;
+    color: #eee;
+}
+
+body.dark header, body.dark footer {
+    background: #222;
+}
+
+body.dark .link {
+    color: #aaa;
+}
+
+body.dark footer a {
+    color: #999;
+}
+
+body.dark header .title {
+    color: #fafafa;
+}
+
+body.dark .tariffs div {
+    background: #222;
+}

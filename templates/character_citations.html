@@ -1,0 +1,21 @@
+
+<div class="row text-center" id="citations-table">
+    {% for char_value in characters %}
+   
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-2 text-break">
+                <div class="bg-main p-3 rounded border-bottom">
+                    <div class="row">
+                        <div class="col-12  text-left">
+                            <div class="text-success h3 font-weight-bold">$</div>
+                            <small class="text-muted">timr</small><br>
+                            <small class="">{{char_value.name}}</small>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        {% endfor %}
+    
+</div>

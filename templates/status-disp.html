@@ -1,0 +1,6 @@
+<div id="disp-status-buttons" class="d-flex flex-column flex-xl-row mt-2">
+    <button onclick="playClick(); sendWebsocket('update-disp-status', {status: -1})"  class="btn btn-lg btn-block mx-xl-2">OFF</button>
+    <button onclick="playClick(); sendWebsocket('update-disp-status', {status: 1})"  class=" btn btn-dark-green'">ACT</button>
+    <button onclick="playClick(); sendWebsocket('update-disp-status', {status: 2})" class="btn btn-lg btn-block mx-xl-2">TRF</button>
+    <button onclick="playClick(); sendWebsocket('update-disp-status', {status: 3})"  class="btn  btn-lg btn-block mx-xl-2">OPR</button>
+</div>

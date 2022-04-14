@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %} — CONSOLE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        {% include "css.html" %}
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js">
+</script>
+
+        {% block styles %}{% endblock %}
+	</head>
+	
+	 
+	<body class="scrollbar scrollbar-primary vh-100" onload=''>
+       {% include "prereload.html" %}
+        <header id="header">
+
+            <nav class="navbar navbar-expand navbar-dark bg-main">
+                <div class="container-fluid position-relative">
+                    <a class="navbar-brand">
+                    {# <code>&gt; Console_</code> #}
+                        <img src="{{ url_for('static', filename='img/console__logo.png')}}" alt="logo" height="30">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="position-absolute text-center w-100">
+                        <div id="gamezone"><i class="fas fa-location-arrow
+                        {% for setting in settings %} grey-text">{{setting['s_value']}}</i></div>
+                        {% endfor%}
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            {% block navbar_right_buttons %}{% endblock %}
+                            
+                            {% include "profile-navbar.html" %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+
+        {% block beforecontainer %}{% endblock %}
+        
+        <div id="main-content" class="container-fluid p-5">
+            {% block content %}{% endblock %}
+        </div>
+
+        
+        <div class="windows__downbar px-4 py-2 d-flex align-items-center shadow-lg">
+            <img class="windows__logo" src="{{ url_for('static', filename='img/win.png')}}">
+            <div class="float-left ml-4">
+                <select class="border-0 mdb-select md-outline md-form m-0 ml-2 elevation--z4 rounded w-100 windows__deptselect" id="dept-select-navbar">
+                    <option value="0" {% if department == 0 %}selected{% endif %}>Рабочий стол</option>
+
+
+
+                </select>
+            </div>
+            <div class="ml-auto text-center">
+                <span>
+                    <b id="time">11:11</b><br>
+                    <b id="date">11/11/1111</b>
+                </span>
+            </div>
+        </div>
+
+        {% include "js.html" %}
+
+
+        {% block scripts %}{% endblock %}
+        
+    </body>
+</html>

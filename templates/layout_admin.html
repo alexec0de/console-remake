@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %} — CONSOLE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        {% include "css.html" %}
+	</head>
+	<body>
+        {% include "prereload.html" %}
+
+        <header>
+
+            <nav class="navbar navbar-expand-md navbar-dark elevation--z4">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="{{ url_for('static', filename='img/console__logo.png')}}" alt="logo" height="30">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/admin/dashboard">Рабочий стол</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Департаменты</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            {% include "profile-navbar.html" %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+
+        <div class="h-100 container-fluid">
+            {% block content %}{% endblock %}
+        </div>
+
+        {% include "js.html" %}
+
+
+
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

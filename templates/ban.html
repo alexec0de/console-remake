@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BAN - CONSOLE</title>
+     {% include "css.html" %}
+</head>
+<body>
+{#  {% include "prereload.html" %} #}
+    <header id="header">
+
+        <nav class="navbar navbar-expand navbar-dark bg-main">
+            <div class="container-fluid position-relative">
+                <a class="navbar-brand">
+                    {# <code>&gt; Console_</code> #}
+                    <img src="{{ url_for('static', filename='img/console__logo.png')}}" alt="logo" height="30">
+                </a>
+        </nav>
+
+    </header>
+
+    {% block beforecontainer %}{% endblock %}
+
+    <div id="main-content" class="container-fluid p-5">
+        <h1 style="align: center;" class="flex-center">На данный момент вы находитесь в блокировке проекта!!</h1>
+    </div>
+    </body>
+</html>

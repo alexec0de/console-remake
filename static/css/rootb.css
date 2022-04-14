@@ -1,0 +1,21 @@
+:root {
+    --cadbasicwhite: #fff;
+    --cadfontcolor: #ddd;
+    --cadfontdarkcolor: #ccc;
+    --cadverylightprimary: #757575;
+    --cadlightprimary: #444;
+    --cadprimary: #333;
+    --cadsemiprimary: #2d2d2d;
+    --caddarkprimary: #222;
+    --caddanger: #F44336;
+    --cadinfo: #369ff4;
+    --cadwarning: #F4A636;
+    --cadsuccess: #33b547;
+    --cadyddy: #FAC200;
+    --cadlspd: #2566b7;
+    --cadbcso: #39b725;
+    --cadsahp: #e6e9ed;
+    --caddps: #22487e;
+    --caddispatch: #ffb445;
+    --cadlssd: #ffb445;
+}

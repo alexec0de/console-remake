@@ -1,0 +1,37 @@
+{% extends "layout-main.html" %}
+
+{% block title %}Настройки{% endblock %}
+
+{% block beforecontainer %}
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="mt-3 col-12 col-md-8 col-lg-6">
+        <div class="py-2 bg-main rounded text-center">
+        <form method='POST', action='/api/steamid/update', onsubmit="steamidfunc()">
+        {% for users in user%}
+            <h2>{{users['name']}}</h2>
+            
+            <div class='px-5 pt-2'>
+                <input type="text" value="{{users[steam_id]}}" id="profile-steamid" class="form-control bg-form" placeholder="SteamID" name='steamid'>
+                <input type="submit" data-action="edit" class="btn btn-lg btn-flat" value="Сохранить">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endfor %}
+{% endblock %}
+
+
+
+
+
+{% block scripts %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/time.js')}}"></script>
+{% endblock %}

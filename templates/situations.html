@@ -1,0 +1,78 @@
+{# <table class="table btn-table table-striped table-dark text-white bg-main border-top-0 rounded table-responsive-md" id="situations-table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Название</th>
+            <th>Тип</th>
+            <th>Улица</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sit in situations %}
+        <tr>
+            <td>
+            {% if situations == true %}
+                <i class="fas fa-phone {% if sit.attached_units|length > 0 and sit.attached_units|length != 0 %}text-success{% else %}text-danger{% endif %}"></i>
+                {% if user['id'] in sit.attached_units %}<i class="fas fa-paperclip ml-2"></i>{% endif %}
+            </td>
+            <td>{{sit.display_title}}</td>
+            <td>{{sit.display_type}}</td>
+            <td>{{sit.street}}</td>
+            <td>
+                <a onclick="showSituationInfo({{sit.id}})"><i class="fas fa-comments"></i></a>
+                {% if department_type == 2 %}
+                    <a class="ml-2" onclick="showSituationAttach({{sit.id}})"><i class="fas fa-paperclip"></i></a>
+                    <a class="ml-2" onclick="deleteSituation({{sit.id}})"><i class="fas fa-times"></i></a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table> #}
+
+<div id="situations-table">
+	{% for sits in sit%}
+    {% if department_type == 2 %}
+        <div class="bg-main py-2 px-2 my-1">
+            <div class="row">
+                <div class="col-12 col-lg-7 text-left">
+                    <span class="font-roboto"><b>{{sits['display_title']}}</b>, {{sits['issuer_name']}}</span><br/>
+                    <span class="text-break font-roboto">{{sit['description']}}</span><br/>
+                    <span class="font-roboto">{{sits['street']}}{% if sits['intersected_street']|length > 0 %}, пересечение с {{sits['intersected_street']}}{% endif %}</span>
+                </div>
+                <div class="col-12 col-lg-5 d-flex align-items-center justify-content-end">
+                    <button class="btn btn-unique bg-firebrick" onclick="playClick()"><i class="fas fa-plus"></i></button>
+                    <button class="btn btn-amber" onclick="playClick()"><i class="fas fa-comments"></i></button>
+                    <button class="btn btn-dark-green" onclick="playClick()"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+        </div>
+    {% else %}
+    
+        <div class="bg-main py-4 px-3 my-1 rounded">
+            <div class="row">
+                <div class="col-12 col-xl-7 text-left">
+                    <span><i class="fas fa-hashtag"></i>{{sits['display_title']}}</span><br/>
+                    <span class="text-break"><i class="fas fa-comment-alt"></i> {{sits['description']}}</span><br/>
+                    {% if situation_is_attached == true%}
+                        <span class="text-break"><i class="fas fa-paperclip"></i> Вы прикреплены к вызову  {{sits[id]}}.</span><br/>
+                    {% endif %}         
+                </div>
+                <div class="col-12 col-xl-5 d-flex align-items-center justify-content-end flex-row">
+                    {% if situation_is_attached
+                    == true %}
+                        <button onclick="playClick()" class="btn  'btn-dark bg-cst-gray' : 'btn-deep-orange' ">10-23</button>
+                        <button onclick="playClick()" class="btn 'btn-dark bg-cst-gray' : 'btn-dark-green' ">CODE 4</button>
+                    {% endif %}
+                    <button class="btn btn-dark bg-cst-gray" onclick="playClick()"><i class="fas fa-comments"></i></button>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% if sits == None %}
+    <div class="text-center grey-text"><h3>Нет активных вызовов</h3></div>
+{% endif %}
+{% endfor %}
+</div>
